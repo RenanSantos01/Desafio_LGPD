@@ -1,4 +1,3 @@
-// Classe de contato
 class Contato {
   constructor(nome, sobrenome, email, cpf, telefone, contato, novidades) {
     this.nome = nome;
@@ -12,11 +11,11 @@ class Contato {
   }
 }
 
-// Função principal
+
 function Post(form) {
   event.preventDefault();
 
-  // Captura os valores dos campos
+  
   const novoContato = new Contato(
     form.elements.namedItem("nome").value.trim(),
     form.elements.namedItem("sobrenome").value.trim(),
@@ -27,7 +26,7 @@ function Post(form) {
     document.getElementById("novidades").checked
   );
 
-  // Validação básica
+
   if (
     !novoContato.nome ||
     !novoContato.sobrenome ||
@@ -40,11 +39,9 @@ function Post(form) {
     return false;
   }
 
-  // Mensagem de confirmação
   alert(`Obrigado sr(a) ${novoContato.nome}, formulário enviado com sucesso! Em breve entraremos em contato.`);
 
-  // Exibe dados no console
-  console.group("📋 Dados do formulário enviado");
+  console.group("Dados do formulário enviado");
   console.log("Nome:", novoContato.nome);
   console.log("Sobrenome:", novoContato.sobrenome);
   console.log("E-mail:", novoContato.email);
@@ -52,10 +49,9 @@ function Post(form) {
   console.log("Telefone:", novoContato.telefone);
   console.log("Contato por:", novoContato.contato);
   console.log("Deseja receber novidades:", novoContato.novidades);
-  console.log("Data de envio:", novoContato.dataEnvio);
   console.groupEnd();
 
-  // Armazena no localStorage
+  
   try {
     const chave = "formularios_enviados";
     const registros = JSON.parse(localStorage.getItem(chave)) || [];
